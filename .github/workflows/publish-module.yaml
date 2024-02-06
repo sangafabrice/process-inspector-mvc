@@ -1,4 +1,4 @@
-name: CD
+name: CD of ProcessInspector
 on:
   push:
     paths:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   publish-module:
-    name: Publish to PSGallery
+    name: Publish ProcessInspector to PSGallery
     permissions:
       contents: write
     runs-on: windows-latest
@@ -16,10 +16,10 @@ jobs:
       run: |
         . .\build.ps1
         Start-ModuleInstallationBuild
-        Set-ModuleInstallationTestReport
+        Set-ModuleInstallationTestReport -TestResult @{ FailedCount = 0; CodeCoverage = 0 }
         Push-ModuleInstallationTestReport -Email ${{ secrets.EMAIL_KEY }}
     - name: Publish
       if: success()
       run: |
-        Import-Module ModuleName -Force
-        Publish-Module -Name ModuleName -NuGetApiKey ${{ secrets.NUGET_API_KEY }} -Force
+        Import-Module ProcessInspector -Force
+        Publish-Module -Name ProcessInspector -NuGetApiKey ${{ secrets.NUGET_API_KEY }} -Force

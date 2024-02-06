@@ -3,7 +3,7 @@ using namespace 'System.IO'
 Filter Get-ModuleInstallationRoot {
     [CmdletBinding()]
     Param(
-        [string] $ModuleName = 'ModuleName'
+        [string] $ModuleName = 'ProcessInspector'
     )
     @((Get-Module -Name $ModuleName -ListAvailable)?.ModuleBase)[0]
 }
@@ -11,7 +11,7 @@ Filter Get-ModuleInstallationRoot {
 Filter Get-ModuleInstallationVersion {
     [CmdletBinding()]
     Param(
-        [string] $ModuleName = 'ModuleName'
+        [string] $ModuleName = 'ProcessInspector'
     )
     @((Get-Module -Name $ModuleName -ListAvailable)?.Version)[0]
 }
@@ -21,13 +21,13 @@ Filter New-ModuleInstallationManifest {
     Param(
         [string] $Path = $PSScriptRoot,
         [string] $ProjectUri = (git ls-remote --get-url) -replace '\.git$',
-        [string] $ModuleName = 'ModuleName'
+        [string] $ModuleName = 'ProcessInspector'
     )
     $VerboseFlag = $VerbosePreference -ine 'SilentlyContinue'
     Try {
         # Read the latest version and the release notes from the latest.json file
         $LatestJson = Get-Content "$Path\latest.json" -Raw -ErrorAction Stop -Verbose:$VerboseFlag | ConvertFrom-Json
-        $RootModule = "$ModuleName.psm1"
+        $RootModule = "module\$ModuleName.Controller.psm1"
         @{
             # Arguments built for New-ModuleManifest
             Path = "$Path\$ModuleName.psd1"
@@ -37,15 +37,21 @@ Filter New-ModuleInstallationManifest {
             Author = 'Fabrice Sanga'
             CompanyName = 'sangafabrice'
             Copyright = "© $((Get-Date).Year) SangaFabrice. All rights reserved."
-            Description = "→ To support this project, please visit and like: $ProjectUri"
+            Description = @"
+The Process Inspector dialogue box inspects individual processes and provides an option to stop them. It is a simplified view of the Task Manager. However, it is a practical starter for making GUI applications in PowerShell while applying the Model-View-Controller (MVC) architecture.
+→ To support this project, please visit and like: $ProjectUri
+"@
             PowerShellVersion = '7.0'
             PowerShellHostVersion = '7.0'
             FunctionsToExport = @((Get-Content "$Path\$RootModule").Where{ $_ -like 'Function*' -or $_ -like 'Filter*' }.ForEach{ ($_ -split ' ')[1] })
             CmdletsToExport = @()
             VariablesToExport = @()
             AliasesToExport = @()
-            FileList = @("$ModuleName.psd1")
-            Tags = @()
+            FileList = @(
+                "$ModuleName.psd1"
+                Get-ChildItem -Recurse -Include '*ProcessInspector*.ps*1','*.bmp' -File -Name
+            )
+            Tags = @('process-inspector','mvc','adapter','design-pattern','gui','winforms')
             LicenseUri = "$ProjectUri/blob/module/LICENSE.md"
             ProjectUri = $ProjectUri
             IconUri = 'https://gistcdn.githack.com/sangafabrice/a8c75d6031a491c0907d5ca5eb5587e0/raw/406120be7a900c3998e33d7302772827f20539f0/automation.svg'
