@@ -9,7 +9,7 @@ You might be familiar with the **Task Manager** in Windows, which you rush to wh
 
 The **Process Inspector** dialogue box is another reinvented wheel that inspects individual processes and provides an option to stop them. It is a simplified view of the Task Manager. However, it is a practical starter for making GUI applications in PowerShell while applying the **Model-View-Controller (MVC)** architecture.
 
-Here is the link to the demo of the Process Inspector [on YouTube.](https://youtu.be/_qvuhucREUY)
+Here is the link to the demo of the Process Inspector [on YouTube](https://youtu.be/_qvuhucREUY). :film_strip:
 
 <img src="https://gistcdn.githack.com/sangafabrice/a8c75d6031a491c0907d5ca5eb5587e0/raw/406120be7a900c3998e33d7302772827f20539f0/automation.svg" alt="Custom Powershell Module Icon" width="3%"> [![Downloads](https://img.shields.io/powershellgallery/dt/ProcessInspector?color=blue&label=PSGallery%20%E2%AC%87%EF%B8%8F)](https://www.powershellgallery.com/packages/ProcessInspector)
 --
@@ -92,7 +92,7 @@ Then, the controls and timer convert to a unified set of event listeners:
 
 The method **Display()** starts the timer and opens the dialogue box. The timer stops when the dialogue box closes. **Dispose()** releases resources.
 
-Here is the link to the demo of the View [on YouTube](https://youtu.be/2To7t4ZtoW0).
+Here is the link to the demo of the View [on YouTube](https://youtu.be/2To7t4ZtoW0). :film_strip:
 <br>
 <br>
 
@@ -100,7 +100,7 @@ Here is the link to the demo of the View [on YouTube](https://youtu.be/2To7t4Zto
 
 The module is stateless and exports three simple functions. Their goal is to read data related to processes on the local system.
 + **Get-ProcessInstance** gets a list of custom process objects. It only returns process names when it binds the parameter **NoMemoryUsage** switch for faster processing time when the user ticks the option to sort the list by names.
-+ **Get-ProcessMemoryUsage** returns the memory usage in megabytes (MB) of a specified process as computed in Task Manager. Here is the link to the comparison of values between the Task Manager and the Process Inspector [on YouTube](https://youtube.com/shorts/XL0X0GET7Vo?feature=share).
++ **Get-ProcessMemoryUsage** returns the memory usage in megabytes (MB) of a specified process as computed in Task Manager. Here is the link to the comparison of values between the Task Manager and the Process Inspector [on YouTube](https://youtube.com/shorts/XL0X0GET7Vo?feature=share). :film_strip:
 + **Get-TotalMemoryUsage** returns the total memory usage of the local computer and displays it as a percentage value.
 
 ```PowerShell
