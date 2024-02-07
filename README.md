@@ -154,4 +154,4 @@ The Controller module is a **Mediator** between the View and the Model, both dec
 
 **Read** operations happen when the user opens the dialogue to display the overall memory usage of the local system, when she clicks the combo box to list processes, and when she selects one to show its memory consumption.
 
-At last, the root module imports the Controller module and loads the **ProcessInspector** module.
+At last, the **ProcessInspector** manifest indexes the Controller as the root module and exposes its functions.
