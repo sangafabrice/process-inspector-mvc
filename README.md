@@ -4,6 +4,10 @@
 
 Author: Fabrice Sanga
 <br>
+<br>
+
+
+<img src="pi.jpg" alt="Process Inspector Image" width="50%"><img src="pi-dd.jpg" alt="Process Inspector Image" width="50%">
 
 You might be familiar with the **Task Manager** in Windows, which you rush to when a program window stops working abruptly and notifies you that its process is _Not Responding_.  You then have no option other than clicking the button to _End Task_. By the name you guess, it manages tasks. It has many more features than inspecting and ending processes like monitoring system performance, starting tasks, etc.
 
