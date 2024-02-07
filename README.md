@@ -1,5 +1,5 @@
 ## **Use MVC to make a GUI with PowerShell WinForms: the Process Inspector** 
-![Module Version](https://img.shields.io/badge/version-0.0.0-teal) ![Test Coverage](https://img.shields.io/badge/coverage-100%25-teal)
+![Module Version](https://img.shields.io/badge/version-0.0.1-teal)
 [![CD of ProcessInspector](https://github.com/sangafabrice/process-inspector-mvc/actions/workflows/publish-module.yaml/badge.svg)](https://github.com/sangafabrice/process-inspector-mvc/actions/workflows/publish-module.yaml)
 
 Author: Fabrice Sanga
