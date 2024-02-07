@@ -61,7 +61,7 @@ TotalMemoryUsage        ScriptProperty
 
 With the previous commands, we list the custom methods and properties of the Process Inspector UI object. It inherits its other members from the `PSCustomObject` type. You can unbind the parameter `MemberType` from `Get-Member` to get the complete list of members.
 
-The created Process Inspector UI object encapsulates the bare **WinForms** user interface. The logic of the function `New-ProcessInspector` depends on the **Adapter Design Pattern**. The first script on which the View module depends, **New-ProcessInspectorUI.ps1**, returns the WinForms dialogue box object decorated with a timer and other note-properties that refer to graphic elements which state or behavior change.
+The created Process Inspector UI object encapsulates the bare **WinForms** user interface. The logic of the function `New-ProcessInspector` depends on the **Adapter Design Pattern**. The first script on which the View module depends, **New-ProcessInspectorUI.ps1**, returns the WinForms dialogue box object decorated with a timer and other note-properties that refer to graphic elements which state or behavior change. The commands below are executed from the `PSModulePath`.
 
 ```PowerShell
 PS> .\ProcessInspector\module\script\New-ProcessInspectorUI | Get-Member -MemberType NoteProperty | Select-Object Name
